@@ -1,0 +1,41 @@
+
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+   
+    <title>Document</title>
+</head>
+<h1>Seja bem vindo</h1>
+
+<body>
+
+    <h3> Cadastrar Usuario</h3>
+
+    <button id="openModal">Criar Usuario</button>
+
+
+<div id="modal" class="modal">
+    <div class="modal-content">
+        <span id="closeModal" class="close">&times;</span>
+
+        <h2>Novo Usuario</h2>
+
+        <form action="/dashboard/usuarios" method="POST">
+            <input type="text" name="nome" placeholder="Nome" required>
+            <input type="email" name="email" placeholder="Email" required>
+            <input type="text" name="telefone" placeholder="Telefone" required>
+            <input type="text" name="created_at" placeholder="Endereço" required>
+            <input type="text" name="criado_por" placeholder="Admin" > 
+
+            <button type="submit">Salvar</button>
+        </form>
+    </div>
+</div>
+
+<script src="/js/modal.js"></script>
+
+</body>
+</html>
+
+
+
