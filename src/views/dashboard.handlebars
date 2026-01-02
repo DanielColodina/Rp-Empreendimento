@@ -18,19 +18,35 @@
     <div class="modal-content">
         <span id="closeModal" class="close">&times;</span>
 
-        <h2>Novo Usuario</h2>
+       
 
         <form action="/dashboard/usuarios" method="POST">
-            <input type="text" name="nome" placeholder="Nome" required>
-            <input type="email" name="email" placeholder="Email" required>
-            <input type="text" name="telefone" placeholder="Telefone" required>
-            <input type="text" name="created_at" placeholder="Endereço" required>
-            <input type="text" name="criado_por" placeholder="Admin" > 
+            <form action="/dashboard/usuarios" method="POST">
+  <p class="modal-text">Cadastro de Usuario</p>
 
-            <button type="submit">Salvar</button>
+  <input type="text" name="nome" placeholder="Nome" required>
+  <input type="email" name="email" placeholder="Email" required>
+  <input type="text" name="telefone" placeholder="Telefone" required>
+  <input type="text" name="endereco" placeholder="Endereco Obra" required>
+  <input type="text " name="Obra" placeholder="Nome ou Id obra" required>
+
+  <button type="submit">Salvar</button>
+</form>
+
+           
         </form>
+
+       
     </div>
 </div>
+
+ 
+ <div class="users-cadastros">
+     <a href="/dashboard/tablesusers" class="btn-usersCadastro">
+                ver Usuarios Cadastrados
+            </a>
+ </div>
+
 
 <script src="/js/modal.js"></script>
 

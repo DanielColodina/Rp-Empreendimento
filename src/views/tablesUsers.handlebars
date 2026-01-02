@@ -1,0 +1,79 @@
+<a href="/dashboard" class="btn-voltar">Voltar</a>
+
+<h1>Usuários cadastrados</h1>
+
+{{#if usuarios}}
+  {{#if usuarios.length}}
+    <table class="table-users">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nome</th>
+          <th>Email</th>
+          <th>Telefone</th>
+          <th>Endereço</th>
+          <th>Obra</th>
+          <th>Criado por</th>
+          <th>Data</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        {{#each usuarios}}
+          <tr>
+            <td>{{id}}</td>
+
+            <!-- NOME CLICÁVEL COM DADOS PARA O MODAL -->
+            <td>
+              <a href="#"
+                 class="user-link"
+                 data-id="{{id}}"
+                 data-nome="{{nome}}"
+                 data-email="{{email}}"
+                 data-telefone="{{telefone}}"
+                 data-endereco="{{endereco}}"
+                 data-obra="{{obra}}"
+                 data-admin="{{admin_nome}}"
+                 data-data="{{created_at}}">
+                 
+                 {{nome}}
+              </a>
+            </td>
+
+            <td>{{email}}</td>
+            <td>{{telefone}}</td>
+            <td>{{endereco}}</td>
+            <td>{{obra}}</td>
+            <td>{{admin_nome}}</td>
+            <td>{{created_at}}</td>
+          </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  {{else}}
+    <p>Nenhum usuário cadastrado.</p>
+  {{/if}}
+{{else}}
+  <p>Erro ao carregar usuários.</p>
+{{/if}}
+
+
+{{!-- MODAL DO USUÁRIO (DETALHES) --}}
+<div id="userModal" class="modal-user">
+  <div class="modal-user-content">
+    <span class="close-user">&times;</span>
+
+    <h2 id="uNome"></h2>
+
+    <p><strong>Email:</strong> <span id="uEmail"></span></p>
+    <p><strong>Telefone:</strong> <span id="uTelefone"></span></p>
+    <p><strong>Endereço:</strong> <span id="uEndereco"></span></p>
+    <p><strong>Obra:</strong> <span id="uObra"></span></p>
+    <p><strong>Criado por:</strong> <span id="uAdmin"></span></p>
+    <p><strong>Data:</strong> <span id="uData"></span></p>
+  </div>
+</div>
+
+<br>
+
+<script src="/js/userModal.js"></script>

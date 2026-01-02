@@ -45,3 +45,18 @@ exports.dashboard = (req, res) => {
 
   res.render('dashboard');
 };
+
+//LISTAGEM USUARIOS
+exports.listUsuarios = async (req, res) => {
+  if (!req.session.adminId) {
+    return res.redirect('/login');
+  }
+
+  try {
+    const usuarios = await Usuario.findAll();
+    res.render('usuarios', {usuarios});
+  } catch (err) {
+    console.log(err);
+    res.send('Erro ao listar os usuarios')
+  }
+};

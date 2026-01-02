@@ -43,3 +43,51 @@ h1 {
   font-size: 22px;
 }
 
+.modal-text{
+  background-color: #38bdf8;
+  color: red;
+}
+
+.table-users {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table-users th,
+.table-users td {
+  border: 1px solid #ffffff;
+  padding: 8px;
+}
+
+.table-users th {
+  background-color: #d10000;
+  text-align: left;
+}
+
+.btn-voltar {
+  display: inline-block;
+  margin-top: 20px;
+}
+.modal-user {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  z-index: 9999;
+}
+
+.modal-user-content {
+  background: #fff;
+  width: 400px;
+  margin: 10% auto;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.close-user {
+  float: right;
+  cursor: pointer;
+  font-size: 22px;
+}
+
+

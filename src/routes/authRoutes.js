@@ -1,30 +1,34 @@
-//Chamando os modulos da rota,controllers, e express
+// Chamando os módulos
 const express = require('express');
 const router = express.Router();
 
 const authController = require('../controllers/authController');
-const usuarioController = require('../controllers/usuarioController'); // ✅ FALTAVA ISSO
+const usuarioController = require('../controllers/usuarioController');
 const isAuth = require('../middlewares/isAuth');
 
+// ---------------- ROTAS PÚBLICAS ----------------
 
-
-//Rota raiz redireciona para login
+// Rota raiz
 router.get('/', (req, res) => {
   res.redirect('/login');
 });
 
-//Pagina de login (Antes de ocorrer a validação)
-router.get('/login', authController.loginPage);//Usando o "get" para pegar as informações
+// Página de login
+router.get('/login', authController.loginPage);
 
-//Processa o login
+// Processa login
 router.post('/login', authController.login);
 
-//Pagina apos o login "get", pegadno as informações de /dashboard
+// ---------------- ROTAS PROTEGIDAS ----------------
+
+// Dashboard
 router.get('/dashboard', isAuth, authController.dashboard);
 
-//Rota para criar usuários (POST)
-router.post('/dashboard/usuarios', isAuth, usuarioController.create); 
+// Criar usuário
+router.post('/dashboard/usuarios', isAuth, usuarioController.create);
 
+// Listar usuários
+router.get('/dashboard/tablesUsers', isAuth, usuarioController.list);
 
+// ---------------- EXPORT ----------------
 module.exports = router;
-

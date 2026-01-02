@@ -13,3 +13,23 @@ exports.findAllByAdmin = async (adminId) => {
   const [rows] = await db.execute(sql, [adminId]);
   return rows;
 };
+
+// LISTAGEM DE TODOS OS USUARIOS
+exports.findAllWithAdmin = async () => {
+  const sql = `
+    SELECT 
+      u.id,
+      u.nome,
+      u.email,
+      u.telefone,
+      u.endereco,
+      u.obra,
+      a.nome AS admin_nome,
+      u.created_at
+    FROM usuarios u
+    JOIN admins a ON a.id = u.criado_por
+    ORDER BY u.id DESC
+  `;
+  const [rows] = await db.execute(sql);
+  return rows;
+};
